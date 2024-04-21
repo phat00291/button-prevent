@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- youtube AMz -->
+    <div class="buttons">
+        <a class="button" href="#">button
+            <!-- <span class="overlay"></span> -->
+        </a>
+        <a class="button active" href="#">button
+            <!-- <span class="overlay"></span> -->
+        </a>
+    </div>
+    <script>
+        const buttons = document.querySelectorAll('.button');
+        for (var index = 0; index < buttons.length; index++) {
+            buttons[index].addEventListener('click', (event) => {
+                event.preventDefault();
+
+                var overlay = document.createElement('span');
+                overlay.classList.add("overlay");
+
+                let x = event.clientX - event.target.offsetLeft;
+                let y = event.clientY - event.target.offsetTop;
+                overlay.style.left = x + "px";
+                overlay.style.top = y + "px";
+
+                event.target.appendChild(overlay);
+
+                setTimeout(() =>{
+                    overlay.remove();
+                }, 500);
+
+                console.log(overlay);
+            });
+            
+        }
+    </script>
+</body>
+</html>
